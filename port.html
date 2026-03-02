@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr CIBANGU NGOYI Honoré | International Medical Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= GLOBAL ================= */
+
+        :root {
+            --blue: #0057B7;
+            --red: #CE1126;
+            --yellow: #FCD116;
+            --glass: rgba(255, 255, 255, 0.1);
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--blue), #003b7a);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            position: fixed;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        /* Burger */
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .burger span {
+            height: 3px;
+            width: 25px;
+            background: white;
+            margin: 4px;
+            transition: 0.4s;
+        }
+
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-content {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            animation: fadeUp 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--yellow);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* ================= CARDS ================= */
+
+        .card {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            transition: 0.4s;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: black;
+            text-align: center;
+            padding: 30px;
+            color: var(--yellow);
+        }
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:768px) {
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                width: 220px;
+                padding: 20px;
+                transform: translateX(100%);
+                transition: 0.4s;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Dr K.N.H</div>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Dr KAMUNGA NTUMBA Honoc</h1>
+            <p>Biomedical Sciences Graduate | Clinical Research Enthusiast | Patient-Centered Care</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="card">
+            <p>
+                Graduate in Biomedical Sciences from Université Officielle de Mbujimayi (2017-2020).
+                Dedicated medical professional with strong academic background and commitment to ethical healthcare.
+            </p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Academic Background</h2>
+        <div class="card">
+            <p><strong>Faculty of Medicine</strong></p>
+            <p>Graduated in Biomedical Sciences</p>
+            <p>Mention: Satisfaction</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="card">
+            ✔ Clinical Analysis<br>
+            ✔ Medical Research<br>
+            ✔ Laboratory Skills<br>
+            ✔ Team Collaboration<br>
+            ✔ Diagnostic Interpretation
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="card">
+            Email: example@email.com<br>
+            Phone: +243 852 200 628
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Dr KAMUNGA NTUMBA Honoc | International Portfolio
+    </footer>
+
+    <script>
+
+        /* Burger */
+
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.burger').classList.toggle('active');
+        }
+
+        /* Scroll Animation */
+
+        const cards = document.querySelectorAll('.card');
+
+        window.addEventListener('scroll', () => {
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < window.innerHeight - 100) {
+                    card.classList.add('visible');
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
