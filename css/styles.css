@@ -168,11 +168,37 @@ section {
     align-items: center;
 }
 
+/* ===============================
+   PROJECT CARDS PREMIUM
+================================= */
+
 .project-list a {
+    display: block;
+    width: min(600px, 95%);
+    padding: 1rem 1.5rem;
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 14px;
     color: #a78bfa;
     text-decoration: none;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    transition: transform 0.3s ease, color 0.3s ease;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.project-list a:hover {
+    background: rgba(139, 92, 246, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    color: #c4b5fd;
+}
+
+/* Click effect (instant color feedback) */
+.project-list a:active {
+    background: #8b5cf6;
+    color: white;
+    transform: scale(0.97);
 }
 
 .project-list a:hover {
